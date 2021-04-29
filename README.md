@@ -26,8 +26,9 @@ Run rails server
 
 Example API calls:
 
-`curl --location --request GET 'http://localhost:3000/api/v1/apartments'`
-`curl --location --request GET 'localhost:3000/api/v1/apartments?min_price=400&max_price=500&min_sqm=200&max_sqm=400&number_of_bedrooms=7'`
+`curl --location --request GET 'https://apartment-search-be.herokuapp.com/api/v1/apartments'`
+
+`curl --location --request GET 'https://apartment-search-be.herokuapp.com/api/v1/apartments?minimum_price=400&maximum_price=500&minimum_sqm=200&maximum_sqm=400&number_of_bedrooms=7'`
 
 Output:
 ```
@@ -46,6 +47,6 @@ Output:
 ]
 ```
 
-`curl --location --request GET 'http://localhost:3000/api/v1/apartments?number_of_bathrooms=3'`
+`curl --location --request GET 'http://https://apartment-search-be.herokuapp.com/api/v1/apartments?number_of_bathrooms=3'`
 Output:
 `{"message":"Invalid key(s): number_of_bathrooms"}`
