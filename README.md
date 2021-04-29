@@ -1,24 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://github.com/dipakgupta12/apartment_search.git
 
-Things you may want to cover:
+*Setup Instructions*
 
-* Ruby version
+* ruby version - 2.7.1
+* database - postgreSQL
 
-* System dependencies
+clone this repository
+`git clone https://github.com/dipakgupta12/apartment_search.git`
 
-* Configuration
+`cd apartment_search`
 
-* Database creation
+Install all dependencies with bundle
+`bundle install`
 
-* Database initialization
+Create database
+`rails db:create`
 
-* How to run the test suite
+Run the migrations
+`rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+Run rails server
+`rails s`
 
-* Deployment instructions
+Example API calls:
 
-* ...
+`curl --location --request GET 'http://localhost:3000/api/v1/apartments'`
+`curl --location --request GET 'localhost:3000/api/v1/apartments?min_price=400&max_price=500&min_sqm=200&max_sqm=400&number_of_bedrooms=7'`
+
+Output:
+```
+[
+  {
+    "id":1,
+    "title":"Pariatur sunt magnam nisi veritatis.",
+    "price":540,
+    "sqm":872,
+    "number_of_bedrooms":3,
+    "number_of_bathrooms":2,
+    "picture":"https://loremflickr.com/100/100/apartment",
+    "created_at":"2021-04-28T15:24:22.960Z",
+    "updated_at":"2021-04-28T15:24:22.960Z"
+  }
+]
+```
+
+`curl --location --request GET 'http://localhost:3000/api/v1/apartments?number_of_bathrooms=3'`
+Output:
+`{"message":"Invalid key(s): number_of_bathrooms"}`
