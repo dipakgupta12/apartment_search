@@ -5,7 +5,7 @@ class Apartment < ApplicationRecord
       sqm: (params[:minimum_sqm]..params[:maximum_sqm])
     )
     apartments = apartments.where(
-      number_of_bedrooms: params[:number_of_bedrooms]
+      "number_of_bedrooms >= ?", params[:number_of_bedrooms]
     ) if params[:number_of_bedrooms].present?
     apartments
   end

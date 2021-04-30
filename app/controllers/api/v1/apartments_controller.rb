@@ -1,6 +1,6 @@
 class Api::V1::ApartmentsController < ApplicationController
   def index
-    if filter_params.empty? || filter_params.keys.eql?(valid_filter_params.keys)
+    if filter_params.empty? || filter_params.keys.all?{ |key| !!valid_filter_params[key] }
       apartments = valid_filter_params.present? ? Apartment.filter(valid_filter_params) : Apartment.all
       render json: apartments, status: :ok
     else
